@@ -1,10 +1,10 @@
 var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d");
 
-for(i=1;i<=10;i++) {
+for(i=1;i<=30;i++) {
 	if(i % 2 == 0) var color = "red";
 	else	color = "black"
-	dibujarLinea(color, 0, i, 300-i, 0);
+	dibujarLinea(color, 0, i, i, 300);
 }
 
 function dibujarLinea(c, xi, yi, xf, yf) {
