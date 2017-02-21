@@ -1,17 +1,37 @@
-var d = document.getElementById("dibujito");
-var lienzo = d.getContext("2d");
+var
+	texto = document.getElementById("texto_lineas"),
+	boton = document.getElementById("botoncito"),
+	d = document.getElementById("dibujito"),
+	lienzo = d.getContext("2d"),
+	ancho = d.width;
 
-for(i=1;i<=30;i++) {
-	if(i % 2 == 0) var color = "red";
-	else	color = "black"
-	dibujarLinea(color, 0, i, i, 300);
-}
+boton.addEventListener( "click", dibujoPorClick );
 
-function dibujarLinea(c, xi, yi, xf, yf) {
+function dl(c, xi, yi, xf, yf) {
 	lienzo.beginPath();
 	lienzo.strokeStyle = c;
 	lienzo.moveTo(xi, yi);
 	lienzo.lineTo(xf, yf);
 	lienzo.stroke();
 	lienzo.closePath();
+}
+
+function dibujoPorClick() {
+	var
+		xxx = parseInt(texto.value),
+		line = xxx,
+		l = 0,
+		yi, xf,
+		cPink = "#FAA",
+		espacio = ancho / line;
+
+	do {
+		yi = espacio * l;
+		xf = espacio * (l + 1);
+		dl(cPink, yi, 0, 300, xf);
+		l++;
+	} while (l < line);
+
+	dl(cPink, 0, 1, ancho - 1, 0);
+	dl(cPink, ancho - 1, 0, ancho - 1, 300);
 }
