@@ -32,5 +32,5 @@ function dibujarTeclado(e) {
 	var mousey = e.y - canvasy;
 	console.log(mousex);
 	var colorcito = "green";
-	dl(colorcito, mousex, mousey, mousex+1, mouse+1, papel);
+	dl(colorcito, mousex-1, mousey-1, mousex+1, mousey+1, papel);
 }
